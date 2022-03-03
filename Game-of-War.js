@@ -20,13 +20,16 @@ class Deck {
         this.cards.push(new Card(suits[i], ranks[x], x + 1));
       }
     }
-
-  }  
-shuffleDeck () {
-  Math.floor(Math.random()* Deck.cards.length)
+this.shuffleDeck()
+  }
+  shuffleDeck() {
+    for (let i = this.cards.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      [this.cards[i], this.cards[j]] = [this.cards[j], this.cards[i]]
+    }
+  }
 }
 
-  shuffleDeck();
-
 let deck = new Deck()
+
 console.log(deck)
